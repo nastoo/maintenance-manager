@@ -1,10 +1,9 @@
 import MatomoQuery from "~/models/MatomoQuery";
 import {MatomoSite} from "~/models/MatomoSite";
+import {useIdGetterFromQuery} from "~/composables/useIdGetterFromQuery";
 
 export default defineEventHandler(async (event): Promise<MatomoSite> => {
-    // get id from query
-    const query = getQuery(event);
-    const id = parseInt(<string>query.id);
+    const id = useIdGetterFromQuery(event);
 
     if (!id) {
         throw createError({
@@ -33,6 +32,4 @@ export default defineEventHandler(async (event): Promise<MatomoSite> => {
     }
 
     return site;
-
-
 });

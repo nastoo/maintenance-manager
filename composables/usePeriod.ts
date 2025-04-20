@@ -14,6 +14,7 @@ export const getPeriodDates = (date?: CustomDate, period?: string, absolute?: bo
     switch (period) {
         case 'day':
             return new PeriodDates(date, date);
+
         case 'week':
             return absolute
                 ? new PeriodDates(getFirstDayOfWeek(date), getLastDayOfWeek(date))
@@ -26,8 +27,8 @@ export const getPeriodDates = (date?: CustomDate, period?: string, absolute?: bo
 
         case 'year':
             return absolute
-            ? new PeriodDates(getFirstDayOfYear(date), getLastDayOfYear(date))
-            : new PeriodDates(getRelativeStartDayYear(date), new CustomDate());
+                ? new PeriodDates(getFirstDayOfYear(date), getLastDayOfYear(date))
+                : new PeriodDates(getRelativeStartDayYear(date), new CustomDate());
 
         default:
             throw new Error('Invalid period');

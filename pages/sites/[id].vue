@@ -8,7 +8,12 @@ if (siteId === undefined) {
 
 const {$matomoClient} = useNuxtApp();
 const site = await $matomoClient.getSiteFromId(siteId);
-
+const visitSummary = await $matomoClient.getVisitSummary(siteId);
+const visitFrequency = await $matomoClient.getVisitFrequency(siteId);
+const userCountry = await $matomoClient.getUserCountry(siteId);
+const pageTitles = await $matomoClient.getPageTitles(siteId);
+const devicesType = await $matomoClient.getDeviceTypes(siteId);
+const getReferrer = await $matomoClient.getReferrers(siteId);
 </script>
 
 <template>
